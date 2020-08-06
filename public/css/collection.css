@@ -1,0 +1,63 @@
+
+.wrapper{
+    height: 90px;
+    /* background-color: antiquewhite; */
+    font-size: 12px;
+}
+.main-banner-collection{
+    width: 100%;
+    height: 480px;
+    background: url("../images/collection-iPhone_11_1944x.webp") no-repeat center;
+    background-size: 100%;
+    position: relative;
+    /* background-color: red; */
+    opacity: 0.96;
+    cursor: pointer;
+    transition: transform .5s
+
+}
+.main-banner-collection:hover{
+    opacity: 1;
+    transform: scale(1.02);
+}
+.mainBanner__link__content{
+    width: 100%;
+    height: 155px;
+    position: absolute;
+    margin-top: 162px;
+    text-align: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.items-collection{
+    width: 100%;
+    height: 480px;
+    padding: 5px;
+    margin-top: 10px;
+
+
+}
+.collection-item-img{
+    height: 300px;
+    width: 100%;
+    /* background-color: brown; */
+    background-color: #f8f8f8;
+}
+.collection-color-item{
+    height: 62px;
+    width: 100%;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+.collection-product-price{
+    height: calc(480px - 362px);
+    /* background-color: antiquewhite; */
+    width: 100%;
+    background-color: #f8f8f8;
+}
+.price{
+    padding-left: 30px;
+    font-weight: 700;
+}

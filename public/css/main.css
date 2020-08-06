@@ -1,0 +1,127 @@
+.main{
+    width: 100%;
+    height: max-height;
+    /* background-color: beige; */
+}
+.main-banner{
+    width: 100%;
+    height: 480px;
+    background: url("../images/homepage-banner-desktop-UPDATE.jpg") no-repeat center;
+    background-size: 100%;
+    position: relative;
+    /* background-color: red; */
+    opacity: 0.96;
+    cursor: pointer;
+
+
+}
+.main-banner:hover{opacity: 1;}
+.mainBanner__link__content{
+    width: 100%;
+    height: 155px;
+    position: absolute;
+    margin-top: 162px;
+    text-align: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+a{
+    text-decoration: none;
+}
+.slider{
+    width: 100%;
+    height: 590px;
+    /* background-color: cornflowerblue; */
+}
+.slider-tittle{
+    height: 100px;
+    width: 50%;
+    margin: auto;
+    /* background-color: red; */
+    text-align: center;
+    padding-top: 40px;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+.slider-product{
+    height: calc(590px - 100px);
+    width: 100%;
+    /* background-color: blueviolet; */
+}
+.div-items{
+    background-color: #f8f8f8;
+    height: 490px;
+}
+.img-item{
+    width: 80%;
+    height: 360px;
+    /* background-color: red; */
+    margin: auto;
+}
+
+/* đổi ảnh ở item carousel */
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background:url(../image/3.jpeg) no-repeat center;
+    background-size: auto;
+  }
+
+  .img-item:hover .overlay {
+    opacity: 1;
+  }
+
+  /* banner  */
+  .main-banner-product{
+      width: 100%;
+      height: calc(490px*2);
+      /* background-color: red; */
+  }
+  .landingPageBanner{
+      width: 50%;
+      height: 490px;
+      float: left;
+      background-color: aqua;
+      opacity: 0.95;
+      position: relative;
+
+  }
+  .landingPageBanner:hover{
+      opacity: 1;
+  }
+  .top-left{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+  }
+  .banner-h3{
+      color: #f8f8f8;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      text-decoration: none;
+
+  }
+  .video-post{
+      width: 100%;
+      height: 890px;
+      margin: auto;
+      text-align: center;
+      background-color: red;
+      background: url("../images/background-emble-video.jpg");
+  }
+  .video-embed{
+      width: 950px;
+      height: 630px;
+      background-color: bisque;
+      text-align: center;
+      margin: 0 auto;
+
+  }
