@@ -8,6 +8,21 @@
             <a href="{{ route('index') }}" class="a-breadcrum-detail">Home</a> / <a href="#" class="a-breadcrum-detail">@foreach($product as $product_name) {{ $product_name->ProductName }} @endforeach</a>
         </div>
     </div>
+    @if (Session::has('success'))
+        <div class="col-12 alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ Session::get('success') }}</strong>
+        </div>
+
+    @endif
+
+    @if (Session::has('delete_error'))
+        <div class="col-12 alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ Session::get('delete_error') }}</strong>
+        </div>
+
+    @endif
     <div class="info-product">
         <div class="container">
             <div class="row">
@@ -44,7 +59,7 @@
                         <button type="button" class="btn btn-outline-info" style="width:100%; display: inline">
                             <strong>
                                 <img src="https://img.icons8.com/fluent/24/000000/add-shopping-cart.png" style="margin-bottom: 6px" />
-                                ADD TO CART
+                                <a class="add-to-cart" href="{{ route('cart.addToCart', $product_detail->ProductID) }}">+ Add To Cart</a>
                             </strong>
                         </button>
                       <br>

@@ -62,8 +62,11 @@ Route::group(['prefix'=>'HomePage','namespace'=> 'Home'],function(){
     Route::get('products/{ProductID}','ProductsController@index')->name('products');
     Route::get('category/{id}','CategoryController@index')->name('category');
     Route::get('all','ProductsController@all')->name('products.all');
+    Route::get('add-to-cart/{id}', 'ShoppingCartController@addToCart')->name('cart.addToCart');
+    Route::get('cart','ShoppingCartController@cart')->name('cart.index');
+    Route::get('/remove-to-cart/{id}', 'ShoppingCartController@removeProductIntoCart')->name('cart.removeProductIntoCart');
+    Route::post('/update-to-cart/{id}', 'ShoppingCartController@updateProductIntoCart')->name('cart.updateProductIntoCart');
 });
-
 
 
 
