@@ -9,7 +9,7 @@
 {{--    <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon.png">--}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Paper Dashboard PRO by Creative Tim</title>
+    <title>A D M I N</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -48,70 +48,84 @@
             </a>
 
             <a href="#" class="simple-text logo-normal">
-                Adminitrator
+                @if($user->role == 1)
+                    SuperAdmin
+                @elseif($user->role == 2)
+                    Admin
+                @else
+                    Processor Orders
+                @endif
             </a>
         </div>
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
 {{--                    {{ asset('img/default-avatar.png') }}--}}
-                    <img src="{{ asset('img/default-avatar.png') }}" alt="">
+                    @if($user->avatar != null)
+                        <img src="{{ asset('images/' .$user->avatar) }}" alt="">
+                    @else
+                        <img src="{{ asset('images/default_avatar.png') }}" alt="">
+                    @endif
                 </div>
                 <div class="info">
-                    <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                    <a href="{{ route('admin.profile') }}" class="collapsed" >
 	                        <span>
-								{{ $user->username }}
-		                        <b class="caret"></b>
+                                @if($user->username != null)
+                                    {{ $user->username }}
+                                @else
+                                    Username
+                                @endif
+{{--		                        <b class=""></b>--}}
 							</span>
                     </a>
-                    <div class="clearfix"></div>
+{{--                    <div class="clearfix"></div>--}}
 
-                    <div class="collapse" id="collapseExample">
-                        <ul class="nav">
-                            <li>
-                                <a href="{{ route('admin.profile') }}">
-                                    <span class="sidebar-mini">Mp</span>
-                                    <span class="sidebar-normal">My Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.profile') }}">
-                                    <span class="sidebar-mini">Ep</span>
-                                    <span class="sidebar-normal">Edit Profile</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#settings">
-                                    <span class="sidebar-mini">S</span>
-                                    <span class="sidebar-normal">Settings</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+{{--                    <div class="collapse" id="collapseExample">--}}
+{{--                        <ul class="nav">--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.profile') }}">--}}
+{{--                                    <span class="sidebar-mini">Mp</span>--}}
+{{--                                    <span class="sidebar-normal">My Profile</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.profile') }}">--}}
+{{--                                    <span class="sidebar-mini">Ep</span>--}}
+{{--                                    <span class="sidebar-normal">Edit Profile</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="#settings">--}}
+{{--                                    <span class="sidebar-mini">S</span>--}}
+{{--                                    <span class="sidebar-normal">Settings</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <ul class="nav">
                 <li>
-                    <a data-toggle="collapse" href="#dashboardOverview">
-                        <i class="ti-panel"></i>
-                        <p>Collapse
-                            <b class="caret"></b>
+                    <a  href="{{ route('admin.admintrator') }}">
+                        <i class="ti-user"></i>
+                        <p>Manage Account
+{{--                            <b class="caret"></b>--}}
                         </p>
                     </a>
-                    <div class="collapse" id="dashboardOverview">
-                        <ul class="nav">
-                            <li>
-                                <a href="#panda">
-                                    <span class="sidebar-mini">C1</span>
-                                    <span class="sidebar-normal">Collapse 1</span>
-                                </a>
-                            </li>
-                            <li>
-                                <span class="sidebar-mini">C2</span>
-                                <span class="sidebar-normal">Collapse 2</span>
-                            </li>
-                        </ul>
-                    </div>
+{{--                    <div class="collapse" id="dashboardOverview">--}}
+{{--                        <ul class="nav">--}}
+{{--                            <li>--}}
+{{--                                <a href="">--}}
+{{--                                    <span class="sidebar-mini">C1</span>--}}
+{{--                                    <span class="sidebar-normal">Collapse 1</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <span class="sidebar-mini">C2</span>--}}
+{{--                                <span class="sidebar-normal">Collapse 2</span>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
                 </li>
 
                 <li>
@@ -126,7 +140,7 @@
                             <li>
                                 <a href="{{ route('admin.category') }}">
                                     <span class="sidebar-mini">LC</span>
-                                    <span class="sidebar-normal">List Category </span>
+                                    <span class="sidebar-normal">List Categories </span>
                                 </a>
                             </li>
                             <li>
@@ -166,7 +180,7 @@
 
                 <li>
                     <a data-toggle="collapse" href="#dashboardOrders">
-                        <i class="ti-package"></i>
+                        <i class="ti-clipboard"></i>
                         <p>Orders
                             <b class="caret"></b>
                         </p>
@@ -189,6 +203,57 @@
                     </div>
                 </li>
 
+
+{{--                <li>--}}
+{{--                    <a data-toggle="collapse" href="#dashboardImages">--}}
+{{--                        <i class="ti-image"></i>--}}
+{{--                        <p>Featured photo--}}
+{{--                            <b class="caret"></b>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                    <div class="collapse" id="dashboardImages">--}}
+{{--                        <ul class="nav">--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.orders') }}">--}}
+{{--                                    <span class="sidebar-mini">LO</span>--}}
+{{--                                    <span class="sidebar-normal"> List Orders</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            --}}{{--                            <li>--}}
+{{--                            --}}{{--                                <a href="{{ route("admin.product.create") }}">--}}
+{{--                            --}}{{--                                    <span class="sidebar-mini">NP</span>--}}
+{{--                            --}}{{--                                    <span class="sidebar-normal">New Product </span>--}}
+{{--                            --}}{{--                                </a>--}}
+{{--                            --}}{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
+
+{{--                <li>--}}
+{{--                    <a data-toggle="collapse" href="#dashboardEmail">--}}
+{{--                        <i class="ti-email"></i>--}}
+{{--                        <p>News--}}
+{{--                            <b class="caret"></b>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                    <div class="collapse" id="dashboardEmail">--}}
+{{--                        <ul class="nav">--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('admin.orders') }}">--}}
+{{--                                    <span class="sidebar-mini">LO</span>--}}
+{{--                                    <span class="sidebar-normal">News</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            --}}{{--                            <li>--}}
+{{--                            --}}{{--                                <a href="{{ route("admin.product.create") }}">--}}
+{{--                            --}}{{--                                    <span class="sidebar-mini">NP</span>--}}
+{{--                            --}}{{--                                    <span class="sidebar-normal">New Product </span>--}}
+{{--                            --}}{{--                                </a>--}}
+{{--                            --}}{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
+
             </ul>
         </div>
     </div>
@@ -206,50 +271,56 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <a class="navbar-brand" href="#charts" style="color: orangered">Ecko Unltd</a>
+                    <a class="navbar-brand" href="{{ route('admin.dashboard') }}" style="color: orangered">Ecko Unltd</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <form class="navbar-form navbar-left navbar-search-form" role="search">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                        </div>
-                    </form>
+{{--                    <form class="navbar-form navbar-left navbar-search-form" role="search">--}}
+{{--                        <div class="input-group">--}}
+{{--                            <span class="input-group-addon"><i class="fa fa-search"></i></span>--}}
+{{--                            <input type="text" value="" class="form-control" placeholder="Search...">--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#stats" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-                                <p>Stats</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#notifications" class="dropdown-toggle btn-rotate" data-toggle="dropdown">
-                                <i class="ti-bell"></i>
-                                <span class="notification">5</span>
-                                <p class="hidden-md hidden-lg">
-                                    Notifications
-                                    <b class="caret"></b>
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#not1">Notification 1</a></li>
-                                <li><a href="#not2">Notification 2</a></li>
-                                <li><a href="#not3">Notification 3</a></li>
-                                <li><a href="#not4">Notification 4</a></li>
-                                <li><a href="#another">Another notification</a></li>
-                            </ul>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="#stats" class="dropdown-toggle btn-magnify" data-toggle="dropdown">--}}
+{{--                                <i class="ti-panel"></i>--}}
+{{--                                <p>Stats</p>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li class="dropdown">--}}
+{{--                            <a href="#notifications" class="dropdown-toggle btn-rotate" data-toggle="dropdown">--}}
+{{--                                <i class="ti-bell"></i>--}}
+{{--                                <span class="notification">5</span>--}}
+{{--                                <p class="hidden-md hidden-lg">--}}
+{{--                                    Notifications--}}
+{{--                                    <b class="caret"></b>--}}
+{{--                                </p>--}}
+{{--                            </a>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li><a href="#not1">Notification 1</a></li>--}}
+{{--                                <li><a href="#not2">Notification 2</a></li>--}}
+{{--                                <li><a href="#not3">Notification 3</a></li>--}}
+{{--                                <li><a href="#not4">Notification 4</a></li>--}}
+{{--                                <li><a href="#another">Another notification</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
                         <li>
                             <a href="#settings" class="dropdown-toggle btn-rotate" data-toggle="dropdown">
-                                <i class="ti-settings"></i>
+                                <i class="ti-user"></i>
                                 <p class="hidden-md hidden-lg">
                                     Settings
                                     <b class="caret"></b>
                                 </p>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#not1">{{ $user->username }}</a></li>
-                                <li><a href="#not2">Setting</a></li>
+                                <li><a href="{{ route('admin.profile') }}">
+                                        @if($user->username != null)
+                                            {{ $user->username }}
+                                        @else
+                                            Username
+                                        @endif
+                                    </a></li>
+                                <li><a href="{{ route('admin.profile') }}">Edit</a></li>
                                 <li><a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -303,7 +374,7 @@
                     </ul>
                 </nav>
                 <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.fb.com/hunglephu83" target="_blank"">Phu Hung</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="#" target="_blank">14th Team</a>
                 </div>
             </div>
         </footer>

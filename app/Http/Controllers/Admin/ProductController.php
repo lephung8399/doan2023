@@ -19,20 +19,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::getProductAndCategoryName();
         $user = Auth::user();
-//        $cate_id =  DB::table('products')->select('ProductID')->get();
-//        $cate_id = Category::findOrFail(1);
-//        $cate_id = DB::table('productcategories')->where('CategoryID', '=', 1)->get();
-//        $cate_name = DB::table('productcategories')
-//            ->join('products', 'products.ProductCategoryID', '=', 'productcategories.CategoryID')
-//            ->select('productcategories.CategoryName')
-//            ->where('products.ProductCategoryID','=',$cate_id)
-//            ->get();
-//        dd($cate_name);
 
-
-//        dd($products);
         return view('admin.Products.productList',['user' => $user, 'products' => $products]);
     }
 

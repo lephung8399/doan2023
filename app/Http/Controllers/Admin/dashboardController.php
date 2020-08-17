@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
 
 
 class dashboardController extends Controller
@@ -16,6 +16,61 @@ class dashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function changePassword(){
+        $user = Auth::user();
+//        dd('ac');
+        return view('admin.newPassword',['user' => $user]);
+    }
+
+    public function changePasswordProcess(Request $request,$id){
+        $user = User::find($id);
+        $user->password = Hash::make($request['password']);
+//        $user->password = Hash::make($request_data['password']);
+        $user->save();
+//        dd($id);
+        return redirect()->route('admin.profile');
+    }
+
+    public function confirmPassword(){
+//        dd('a');
+        $user = Auth::user();
+        return view('admin.confirmPassword',['user' => $user]);
+    }
+
+    public function forbidden(){
+        $user = Auth::user();
+        return view('admin.forbidden',['user' => $user]);
+    }
+
+    public function avatar(Request $request, $id){
+//        dd($id);
+        $this->validate($request, [
+
+            'anh' => 'required',
+            'anh.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+        ]);
+
+        if($request->hasfile('anh'))
+        {
+
+            foreach($request->file('anh') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+            }
+        }
+
+        $user_ava = User::find($id);
+
+        $user_ava->avatar = $name;
+        $user_ava->save();
+
+        return redirect()->route('admin.profile');
+
+//        dump('abc');
+    }
+
     public function index()
     {
         $user = Auth::user();

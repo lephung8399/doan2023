@@ -32,38 +32,41 @@
                     <tr>
                         <td data-th="Product">
                             <div class="row">
-                                <div class="col-md-2 hidden-xs"><img
-                                        src="{{ asset('storage/' . $product['item']->image) }}"
+                                <div class="col-md-2 hidden-xs">
+                                    <img
+                                        src="{{ asset('images/' . $product['item']->ProductImage) }}"
                                         alt="..."
-                                        class="img-responsive" width="100%"/></div>
+                                        class="img-responsive" width="100%"/>
+                                </div>
                                 <div class="col-md-10">
                                     <h4 class="nomargin">{{ $product['item']->ProductName }}</h4>
                                 </div>
                             </div>
                         </td>
                         <td data-th="Price"">
-                            {{ '$' . $product['item']->ProductPrice }}
+                            {{  number_format($product['item']->ProductPrice) }} VNĐ
                         </td>
                          <td data-th="Quantity">
                                 <input type="number" data-id="{{ $product['item']->id }}" class="form-control text-center update-product-cart" min="0" name="qty"
                                        value="{{ $product['qty'] }}">
                             </td>
-                            <td data-th="Subtotal" id="product-subtotal-{{$product['item']->id}}" class="text-center">{{ '$' . $product['price']  }}</td>
+                            <td data-th="Subtotal" id="product-subtotal-{{$product['item']->id}}" class="text-center">{{  number_format($product['price']) }} VNĐ</td>
                             <td class="actions" data-th="">
                                 <a class="btn btn-danger btn-sm"
-                                   href="{{ route('cart.removeProductIntoCart', $product['item']->ProductID) }}"><i
-                                        class="fa fa-trash-o"></i></a>
+                                   href="{{ route('cart.removeProductIntoCart', $product['item']->ProductID) }}">
+                                    <img src="https://img.icons8.com/plasticine/28/000000/filled-trash.png" style="margin-top: 3px"/>
+                                </a>
                             </td>
                     </tr>
                 @endforeach
             </tbody>
             <tfoot>
             <tr>
-                <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                <td><a href="{{ route('index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
                 </td>
                 <td colspan="2" class="hidden-xs"></td>
-                <td id="total-price-cart" class="hidden-xs text-center"><strong>Tổng tiền: ${{ $cart->totalPrice }}</strong></td>
-                <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                <td id="total-price-cart" class="hidden-xs text-center"><strong>Total: {{ number_format($cart->totalPrice) }} VNĐ</strong></td>
+                <td><a href="{{ route('orders') }}" class="btn btn-success btn-block">Payment <i class="fa fa-angle-right"></i></a></td>
             </tr>
             </tfoot>
             @else

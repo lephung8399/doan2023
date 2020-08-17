@@ -5,34 +5,57 @@
         <div class="row">
             <div class="col-lg-4 col-md-5">
                 <div class="card card-user">
+                    <img src="{{ asset('images/' .$user->avatar) }}" style="position: absolute; filter: blur(8px)" />
                     <div class="image">
-                        <img src="../../assets/img/background.jpg" alt="..."/>
+{{--                        <img src="{{ asset('images/my-ava.jpg') }}" />--}}
                     </div>
                     <div class="card-content">
-                        <div class="author">
-                            <img class="avatar border-white" src="{{ asset('images/my-ava.jpg') }}" alt="..."/>
-                            <h4 class="card-title">{{$user->UserFirstName}} {{$user->UserLastName}}<br />
-                                <a href="#"><small>{{$user->username}}</small></a>
-                            </h4>
-                        </div>
-                        <p class="description text-center">
-                            "{{$user->aboutMe}} :)"
+                        <form action="{{ route('admin.profile.avatar',$user->id) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="author image-upload">
+                                <label for="file-input">
+                                    @if($user->avatar != null)
+                                        <img class="avatar border-white"  src="{{ asset('images/' .$user->avatar) }}" alt="">
+                                    @else
+                                        <img class="avatar border-white" src="{{ asset('images/default_avatar.png') }}" alt="">
+                                    @endif
+{{--                                    <img class="avatar border-white"  src="{{ asset('images/' .$user->avatar) }}" alt="..."/>--}}
+                                </label>
+                                <input id="file-input" type="file" name="anh[]" />
+                                <h4 class="card-title">
+                                    <button type="submit" class="btn btn-outline-danger" style="color: black">Change Avatar</button>
+                                    <br> <p></p>
+                                    {{$user->UserFirstName}} {{$user->UserLastName}}<br />
+                                    <a href="#"><small>{{$user->username}}</small></a>
+                                    <br>
+                                    @if ($user->role == 1)
+                                        <p style="color: white; font-style: italic"> SuperAdmin</p>
+                                    @elseif($user->role == 2)
+                                        <p style="color: white; font-style: italic">Admin</p>
+                                    @else
+                                        <p style="color: white; font-style: italic">Order Processor</p>
+                                    @endif
+                                </h4>
+                            </div>
+                        </form>
+                        <p class="description text-center" style="color: white">
+                            "{{$user->aboutMe}} "
                         </p>
                     </div>
                     <hr>
-                    <div class="text-center">
-                        <div class="row">
-                            <div class="col-md-3 col-md-offset-1">
-                                <h5>12<br /><small>Files</small></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <h5>2GB<br /><small>Used</small></h5>
-                            </div>
-                            <div class="col-md-3">
-                                <h5>24,6$<br /><small>Spent</small></h5>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="text-center">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-3 col-md-offset-1">--}}
+{{--                                <h5>12<br /><small>Files</small></h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-4">--}}
+{{--                                <h5>2GB<br /><small>Used</small></h5>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-3">--}}
+{{--                                <h5>24,6$<br /><small>Spent</small></h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <div class="col-lg-8 col-md-7">
@@ -95,7 +118,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Phone Number</label>
-                                        <input type="number" class="form-control border-input" name="phone" placeholder="Your Phone Number" value="0{{$user->phone}}">
+                                        <input type="number" class="form-control border-input" name="phone" placeholder="Your Phone Number" value="{{$user->phone}}">
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +134,11 @@
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                                <button type="button" class="btn btn-warning btn-fill btn-wd">
+                                    <a href="{{ route('admin.profile.confirmPassword') }}">Change Password</a>
+                                </button>
                             </div>
+
                             <div class="clearfix"></div>
                         </form>
                     </div>

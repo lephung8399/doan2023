@@ -19,12 +19,12 @@ class HomeController extends Controller
     }
 
     public function user(){
-        $user = User::all();
+//        $user = User::all();
 //        dd($user);
-        $us = Auth::user();
+        $user = Auth::user();
 
-        dd($us);
-        return view('admin.dashboard');
+//        dd($us);
+        return view('admin.dashboard',['user' => $user]);
     }
 
     public function dangnhap()
@@ -39,6 +39,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        return view('admin.dashboard',['user' => $user]);
     }
 }

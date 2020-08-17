@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
 
 
 class HomePageController extends Controller
@@ -15,7 +17,12 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        return view('HomePage.index');
+        $newest = DB::table('products')
+            ->orderBy('ProductID', 'desc')
+            ->limit(5)
+            ->get();
+//        dd($newest);
+        return view('HomePage.index',['newest' => $newest]);
     }
 
     /**
@@ -23,6 +30,14 @@ class HomePageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function searchProcess(Request $request){
+        $term = $request->input('search');
+//        dd($term);
+        $searchs = Product::where('ProductName', 'LIKE', '%' . $term . '%')->get();
+//        dd($search);
+        return view('HomePage.search',['searchs' => $searchs,'term' => $term]);
+
+    }
     public function create()
     {
         //

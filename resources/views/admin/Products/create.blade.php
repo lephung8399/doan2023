@@ -77,6 +77,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-info btn-fill btn-wd">Save</button>
+                                    <a href="{{ URL::previous() }}"><button class="btn btn-warning btn-fill btn-wd" type="button" style="display: inline-block">Cancel</button></a>
                                 </div>
                                 <div class="clearfix"></div>
                         </div>

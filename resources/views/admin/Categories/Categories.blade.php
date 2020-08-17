@@ -23,7 +23,9 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
+                                <th>Category Image</th>
                                 <th>Category Name</th>
+                                <th>Category status</th>
 {{--                                <th>Category Name</th>--}}
 {{--                                <th class="text-right">Salary</th>--}}
                                 <th class="text-right">Actions</th>
@@ -33,7 +35,9 @@
                             @foreach($cate as $categories)
                                 <tr>
                                     <td class="text-center">{{$categories->CategoryID}}</td>
+                                    <td style="width: 500px"><img src="{{ asset('images/' .$categories->CategoryImage) }}" alt="" style="width=50px; height:100px"></td>
                                     <td>{{$categories->CategoryName}}</td>
+                                    <td>{{$categories->status}}</td>
 {{--                                    <td></td>--}}
                                     <td class="td-actions text-right">
 {{--                                        <a href="#" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">--}}

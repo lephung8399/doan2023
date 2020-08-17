@@ -46,16 +46,17 @@
     <div class="container-fluid" id="top-menu">
         <div class="row">
             <div class="col">
-                <a href="#" style="text-decoration: none; color: #8c8c8c;">VIETNAM</a> /
-                <a href="#" style="text-decoration: none; color: #8c8c8c;">ENGLISH</a>
+
             </div>
             <div class="col" style="text-align: right;">
-                <a href="#" style="text-decoration: none; color: #8c8c8c;">
-                    <span style="margin-right: 10px;">FIND A STORE</span>
-                </a>
-                <a href="#" style="text-decoration: none; color: #8c8c8c;">
-                    <span>NEWSLETTER</span>
-                </a>
+                <img src="https://img.icons8.com/color/24/000000/great-britain.png"/>
+                <a href="#" style="text-decoration: none; color: #8c8c8c;">ENGLISH</a>
+{{--                <a href="#" style="text-decoration: none; color: #8c8c8c;">--}}
+{{--                    <span style="margin-right: 10px;">FIND A STORE</span>--}}
+{{--                </a>--}}
+{{--                <a href="#" style="text-decoration: none; color: #8c8c8c;">--}}
+{{--                    <span>NEWSLETTER</span>--}}
+{{--                </a>--}}
             </div>
         </div>
     </div>
@@ -64,7 +65,7 @@
             <div class="col-8">
                 <div class="row">
                     <div class="col-2">
-                        <img src="{{ asset('images/logo.png') }}" alt="" style="height: 74.99px;">
+                        <a href="{{ route('index') }}"><img src="{{ asset('images/logo.png') }}" alt="" style="height: 74.99px;"></a>
                     </div>
                     <div class="col-10">
                         <nav id="primary_nav_wrap">
@@ -88,10 +89,11 @@
                 <div class="row">
 
                     <div class="col-10">
-                        <form action="">
+                        <form action="{{ route('searchProcess') }}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-10">
-                                    <input type="text" class="form-control" style="margin-top: 20px"
+                                    <input type="text" name="search" class="form-control" style="margin-top: 20px"
                                            placeholder="S e a r c h i n g . . .">
                                 </div>
                                 <div class="col-2">
@@ -105,7 +107,7 @@
                     <div class="col-2">
                         <a href="{{ route('cart.index') }}">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            Cart
+                            <img src="https://img.icons8.com/ios-glyphs/28/000000/shopping-cart.png" style="margin-top: 23px" />
                             <span class="badge badge-secondary">{{ (Session::has('cart')) ? count(Session::get('cart')->items) : "0" }}
                                     </span>
                         </a>

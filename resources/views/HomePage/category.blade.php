@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <div class="main-banner-collection" style="width: 100%;">
+    <div class="main-banner-collection" style="width: 100%;  ">
+        <img src="@foreach($cate as $cateImage) {{ asset('images/' . $cateImage->CategoryImage ) }} @endforeach" alt="" class="cate_img" style="width: 100%; background-repeat: no-repeat">
         <span class="mainBanner__link__content">
               <!-- <h1 style="font-size: 70px; color: #ffffff;"><a href="#" style="text-decoration: none; font-family: auto;color: #ffffff;">Your day, Sorted</a></h1> -->
               <br>
@@ -19,7 +20,7 @@
         <div class="row">
             @foreach($categories_product as $category_product)
                     <div class="col-3 items-collection">
-                        <a href="{{ route('products',['ProductID'=>$category_product->ProductID]) }}" >
+                        <a href="{{ route('products',['ProductID'=>$category_product->ProductID]) }}" style="text-decoration: none; color: #1a1a1a">
                             <div class="collection-item-img">
                                 <img src="{{ asset('images/' . $category_product->ProductImage ) }}" style="width: 100%; height:100%" alt="">
                             </div>

@@ -11,6 +11,7 @@ use function PHPSTORM_META\elementType;
 
 class ShoppingCartController extends Controller
 {
+
     public function cart()
     {
         $cart = Session::get('cart');

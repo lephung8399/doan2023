@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Models\Order;
+use App\Models\Payment;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class ordersController extends Controller
 {
@@ -17,7 +21,15 @@ class ordersController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('admin.Order.Orders',['user' => $user]);
+//        $payments = Payment::all();
+        $payments = Payment::orderBy('id', 'desc')->get();
+//        $payments = DB::table('payment')
+//            ->orderBy('id', 'desc')
+//            ->get();
+//        dd($payments);
+
+        $orders = Order::all();
+        return view('admin.Order.Orders', ['user' => $user, 'payments' => $payments, 'orders' => $orders]);
     }
 
     /**
@@ -33,7 +45,7 @@ class ordersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -44,18 +56,34 @@ class ordersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+//        dd($id);
+//        $orderID = DB::table('payment')->('PaymentOrderID', '=', 1)->get();
+//        $orderID = Payment::all('PaymentOrderID');
+        $user = Auth::user();
+        $paymentID = Payment::findorfail($id);
+        $orderIDs = json_decode($paymentID->PaymentOrderID);
+//        dd($orderIDs);
+
+        $products = array();
+        foreach ($orderIDs as $orderID) {
+            $orderProduct = Order::find($orderID);
+            $products[] = Product::getProductByOrderId($orderProduct->ProductID, $orderID);
+        }
+        return view('admin.Order.orderDetail', ['user' => $user, 'products' => $products]);
+//        return view()
+
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -66,8 +94,8 @@ class ordersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -78,7 +106,7 @@ class ordersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

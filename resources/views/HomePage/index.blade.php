@@ -16,63 +16,31 @@
 
         <div class="slider">
             <div class="slider-tittle">
-                <p>DISCOVER OUR BESTSELLERS</p>
+                <p>NEW RELEASES</p>
             </div>
 
             <div class="slider-product">
                 <div class="container slider-items">
-                    <div class="owl-carousel">
-                        <div class="div-items">
-                            <div class="img-item" style="position: relative;">
-                                <img src="{{ asset('images/0.jpeg') }}" alt="" style="width: 100%; height: max-height;">
-                                <div class="overlay">
-                                    <div class="text">
+                        <div class="owl-carousel">
+                            @foreach($newest as $newestt)
+                            <div class="div-items">
+                                <a href="{{ route('products',['ProductID'=>$newestt->ProductID]) }}" style="text-decoration: none; color: #1a1a1a">
+                                    <div class="img-item" style="position: relative;">
+                                        <img src="{{ asset('images/' . $newestt->ProductImage ) }}" alt="" style="width: 100%; height: max-height;">
+                                        <div class="overlay">
+                                            <div class="text">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <b><p style="text-align: center;">
+                                            {{ $newestt->ProductName }} <br>
+                                        {{ number_format($newestt->ProductPrice) }} VNĐ
+                                        </p>
+                                    </b>
+                                </a>
                             </div>
-                            <b><p style="text-align: center;">
-                                    Phone case - 3 Card <br>
-                                    89$
-                                </p></b>
+                            @endforeach
                         </div>
-                        <div class="div-items">
-                            <div class="img-item">
-                                <a href="#"><img src="{{ asset('images/1.jpeg') }}" alt="" style="width: 100%; height: max-height"></a>
-                            </div>
-                            <b><p style="text-align: center;">
-                                    <a href="#">Phone case - 3 Card</a> <br>
-                                    <a href="#">89$</a>
-                                </p></b>
-                        </div>
-                        <div class="div-items">
-                            <div class="img-item">
-                                <a href="#"><img src="{{ asset('images/2.jpeg') }}" alt="" style="width: 100%; height: max-height"></a>
-                            </div>
-                            <b><p style="text-align: center;">
-                                    <a href="#">Phone case - 3 Card</a> <br>
-                                    <a href="#">89$</a>
-                                </p></b>
-                        </div>
-                        <div class="div-items">
-                            <div class="img-item">
-                                <a><img src="{{ asset('images/3.jpeg') }}" alt="" style="width: 100%; height: max-height"></a>
-                            </div>
-                            <b><p style="text-align: center;">
-                                    <a>Phone case - 3 Card</a> <br>
-                                    <a>90$</a>
-                                </p></b>
-                        </div>
-
-                        <!-- <div class="col-4 div-items">
-                          <div class="img-item">
-                            <img src="image/1.jpeg" alt="" style="width: 100%; height: max-height%;">
-                          </div>
-                          <b><p style="text-align: center;">
-                            Phone case - 3 Card <br>
-                            89$
-                          </p></b>
-                        </div> -->
-                    </div>
                 </div>
             </div>
         </div>
@@ -118,7 +86,7 @@
         <div class="video-post">
             <h4 style="padding-top: 100px;">LASTEST RELEASE</h4><br>
             <div class="video-embed">
-                <iframe width="950" height="630" src="https://www.youtube.com/embed/YGaOz4Lq2DQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                <iframe width="950" height="630" src="https://www.youtube.com/embed/YGaOz4Lq2DQ?&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
         </div>

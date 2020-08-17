@@ -18,6 +18,10 @@ class ProductsController extends Controller
      */
     public function index($ProductID)
     {
+        $newest = DB::table('products')
+            ->orderBy('ProductID', 'desc')
+            ->limit(5)
+            ->get();
         $product = Product::where('ProductID',$ProductID)->get();
         $product_id_cate = DB::table('products')
             ->select('ProductCategoryID')
@@ -29,7 +33,7 @@ class ProductsController extends Controller
 //            ->get();
 //        $product_cate = Category::findorfail($product_id_cate);
 //        dd($product_cate);
-        return view('HomePage.products',['product' => $product]);
+        return view('HomePage.products',['product' => $product, 'newest' => $newest]);
     }
 
     public function all(){

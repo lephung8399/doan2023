@@ -34,15 +34,15 @@
                                         <td class="text-center">{{ $product->ProductID }}</td>
                                         <td class="text-center">{{ $product->ProductSKU }}</td>
                                         <td class="text-center">{{ $product->ProductName }}</td>
-                                        <td class="text-center">{{ $product->ProductCategoryID }}</td>
+                                        <td class="text-center">{{ $product->CategoryName }}</td>
                                         <td class="text-center">{{ number_format($product->ProductPrice) }} VNĐ</td>
                                         <td class="text-center">
                                             <img src="{{ asset('images/' .$product->ProductImage) }}" alt="" style="width=100px; height:100px">
                                         </td>
                                         <td class="text-center">
-                                            <a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view">
-                                                <i class="ti-image"></i>
-                                            </a>
+{{--                                            <a rel="tooltip" title="View" class="btn btn-simple btn-info btn-icon table-action view">--}}
+{{--                                                <i class="ti-image"></i>--}}
+{{--                                            </a>--}}
                                             <a href="{{ route('admin.product.edit', ['ProductID'=>$product->ProductID]) }}" rel="tooltip" title="Edit" class="btn btn-simple btn-warning btn-icon table-action edit" >
                                                 <i class="ti-pencil-alt"></i>
                                             </a>

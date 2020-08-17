@@ -28,7 +28,7 @@
     height: calc(729px - 46px);
     /* 683px */
     width: inherit;
-    background-color: antiquewhite;
+    /*background-color: antiquewhite;*/
 }
 
 .product-gallery{
@@ -38,7 +38,7 @@
 }
 .product-gallery-top{
     height: 500px;
-    background-color: bisque;
+    /*background-color: bisque;*/
     width: 100%;
 }
 .product-gallery-bottom{

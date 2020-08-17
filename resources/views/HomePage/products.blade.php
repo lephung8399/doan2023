@@ -51,65 +51,65 @@
                 </div>
                 <div class="col-4 product-selector">
                     @foreach($product as $product_detail)
-                    <h1 style="line-height: 27px; color: grey; font-size: 24px">
+                    <h1 style="line-height: 27px; color: grey; font-size: 24px; border-bottom: 1px solid">
                         {{ $product_detail->ProductName }}
                     </h1>
-                        <strong>{{ number_format($product_detail->ProductPrice) }} </strong> VNĐ
+                        <br>
+                        Price: <strong> {{ number_format($product_detail->ProductPrice) }} </strong> VNĐ
                     <hr >
+                        <a class="add-to-cart" href="{{ route('cart.addToCart', $product_detail->ProductID) }}" style="text-decoration: none">
                         <button type="button" class="btn btn-outline-info" style="width:100%; display: inline">
                             <strong>
                                 <img src="https://img.icons8.com/fluent/24/000000/add-shopping-cart.png" style="margin-bottom: 6px" />
-                                <a class="add-to-cart" href="{{ route('cart.addToCart', $product_detail->ProductID) }}">+ Add To Cart</a>
+                                 Add To Cart
                             </strong>
                         </button>
+                        </a>
                       <br>
-                        {{ $product_detail->ProductDescription }}
-
                     @endforeach
-
+                        <br>
 {{--                    collapse--}}
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Collapsible Group Item #1
+                                    <button class="btn btn-link btn-block text-left " style="color: black; text-decoration: none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Description
                                     </button>
                                 </h2>
                             </div>
 
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    {!! $product_detail->ProductDescription  !!}
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Collapsible Group Item #2
+                                    <button class="btn btn-link btn-block text-left collapsed" style="color: black; text-decoration: none" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        SHIPPING AND DELIVERY
                                     </button>
                                 </h2>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    We offer regular or express shipping to most addresses worldwide. Shipping cost and delivery times are calculated at checkout. Note: P.O. box deliveries will automatically be sent by regular shipping.
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Collapsible Group Item #3
+                                    <button class="btn btn-link btn-block text-left collapsed" style="color: black; text-decoration: none" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        3 YEAR WARRANTY
                                     </button>
                                 </h2>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                 <div class="card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
+                                    Ecko products are warranted to be free from defects in materials and workmanship for three years from original date of purchase when used under normal conditions and for the purpose intended.                                </div>
                             </div>
                         </div>
                     </div>
