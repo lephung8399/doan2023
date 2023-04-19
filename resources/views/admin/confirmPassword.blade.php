@@ -41,7 +41,7 @@
                             </span>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-wd">Unlock</button>
+                        <button type="submit" class="btn btn-wd">Confirm</button>
                     </div>
                 </form>
             </div>

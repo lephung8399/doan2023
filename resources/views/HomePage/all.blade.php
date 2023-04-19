@@ -34,60 +34,6 @@
                 </div>
             @endforeach
         </div>
-
-        {{--        <div class="row">--}}
-        {{--            <div class="col-3 items-collection">--}}
-        {{--                <div class="collection-item-img">--}}
-        {{--                    <img src="{{ asset('images/4.jpeg') }}" style="width: 100%; height:100%" alt="">--}}
-        {{--                </div>--}}
-        {{--                <div class="collection-color-item"></div>--}}
-        {{--                <div class="collection-product-price">--}}
-        {{--                <span><b>Note Sleeve</b>--}}
-        {{--                    <br> <b>89$</b>--}}
-        {{--                    <br> 4 - 11+ card, flat bills, coins--}}
-        {{--                </span>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-
-        {{--            <div class="col-3 items-collection">--}}
-        {{--                <div class="collection-item-img">--}}
-        {{--                    <img src="{{ asset('images/4.jpeg') }}" style="width: 100%; height:100%" alt="">--}}
-        {{--                </div>--}}
-        {{--                <div class="collection-color-item"></div>--}}
-        {{--                <div class="collection-product-price">--}}
-        {{--                <span><b>Note Sleeve</b>--}}
-        {{--                    <br> <b>89$</b>--}}
-        {{--                    <br> 4 - 11+ card, flat bills, coins--}}
-        {{--                </span>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-
-        {{--            <div class="col-3 items-collection">--}}
-        {{--                <div class="collection-item-img">--}}
-        {{--                    <img src="{{ asset('images/4.jpeg') }}" style="width: 100%; height:100%" alt="">--}}
-        {{--                </div>--}}
-        {{--                <div class="collection-color-item"></div>--}}
-        {{--                <div class="collection-product-price">--}}
-        {{--                <span><b>Note Sleeve</b>--}}
-        {{--                    <br> <b>89$</b>--}}
-        {{--                    <br> 4 - 11+ card, flat bills, coins--}}
-        {{--                </span>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-
-        {{--            <div class="col-3 items-collection">--}}
-        {{--                <div class="collection-item-img">--}}
-        {{--                    <img src="{{ asset('images/4.jpeg') }}" style="width: 100%; height:100%" alt="">--}}
-        {{--                </div>--}}
-        {{--                <div class="collection-color-item"></div>--}}
-        {{--                <div class="collection-product-price">--}}
-        {{--                <span><b>Note Sleeve</b>--}}
-        {{--                    <br> <b>89$</b>--}}
-        {{--                    <br> 4 - 11+ card, flat bills, coins--}}
-        {{--                </span>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
     </div>
 
 

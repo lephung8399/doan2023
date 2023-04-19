@@ -46,21 +46,21 @@
         </div>
         <div class="main-banner-product">
             <div class="landingPageBanner">
-                <a href="#"><img src="{{ asset('images/desk-to-dinner-table-without-a-hitch.jpg') }}" alt="" style="margin:auto; width: 100%; height: 100%;">
+                <a href="#" ><img src="{{ asset('images/desk-to-dinner-table-without-a-hitch.jpg') }}" alt="" style="margin:auto; width: 100%; height: 100%;">
                     <div class="top-left">
                         <h2 class="banner-h3">Desk to denner table without a hitch</h2>
                         <span class="banner-h3">
-                <a href="#">SHOP WORK ACCESSORIES ></a>
+                <a href="#"  style="color: #ffffff">SHOP WORK ACCESSORIES</a>
               </span>
                     </div>
                 </a>
             </div>
             <div class="landingPageBanner">
-                <a href="#"></a><img src="{{ asset('images/suitainable.jpg') }}" alt="" style="margin:auto; width: 100%;height: 100%;"></a>
+                <a href="#" style="color: #ffffff"></a><img src="{{ asset('images/suitainable.jpg') }}" alt="" style="margin:auto; width: 100%;height: 100%;"></a>
                 <div class="top-left">
                     <h2 class="banner-h3">Sustainable and strong like the sea</h2>
                     <span class="banner-h3">
-                <a href="#">SHOP MARINE BLUE > </a>
+                <a href="#" style="color: #ffffff">SHOP MARINE BLUE</a>
               </span>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 <div class="top-left">
                     <h2 class="banner-h3">10 years of slimming wallets</h2>
                     <span class="banner-h3">
-                <a href="#">SLIM YOURS > ></a>
+                <a href="#" style="color: #ffffff">SLIM YOURS</a>
               </span>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <div class="top-left">
                     <h2 class="banner-h3">Limited pieces, rare prices</h2>
                     <span class="banner-h3">
-                <a href="#">SHOP LAST CHANGE TO BUY > ></a>
+                <a href="#" style="color: #ffffff">SHOP LAST CHANGE TO BUY</a>
               </span>
                 </div>
             </div>

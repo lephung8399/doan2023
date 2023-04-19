@@ -100,8 +100,6 @@ class ProductController extends Controller
         $updateProduct = Product::where('ProductID',$id)->first();
         $cate = Category::all();
         $user = Auth::user();
-//        dd($updateProduct);
-//        dd($categoryUpdate);
 
         return view('admin.Products.update',['user' => $user, 'updateProduct' => $updateProduct, 'cate' => $cate]);
     }
@@ -132,8 +130,11 @@ class ProductController extends Controller
         }
 
         $product = Product::find($ProductID);
-//        dd($product);
-        $product->ProductImage = $name;
+        
+        if (!empty($name)) {
+            $product->ProductImage = $name;
+        }
+
         $product->ProductName = request('ProductName');
         $product->ProductPrice = request('ProductPrice');
         $product->ProductCategoryID = request('ProductCategoryID');
@@ -142,19 +143,8 @@ class ProductController extends Controller
         $product->ProductDescription = request('ProductDescription');
 
         $product->save();
-//        Product::where('ProductID', $ProductID)
-//            ->update([ep
-//                'ProductImage' = $name,
-//                'ProductName' = request('ProductName'),
-//                'ProductPrice' = request('ProductPrice'),
-//                'ProductCategoryID' = request('ProductCategoryID'),
-//                'ProductSKU' = request('ProductSKU'),
-//                'ProductStock' = request('ProductStock'),
-//                'ProductDescription' = request('ProductDescription'),
-//            ]);
 
         return redirect()->route('admin.products');
-
     }
 
     /**

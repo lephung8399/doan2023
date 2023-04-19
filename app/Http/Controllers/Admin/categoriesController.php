@@ -17,7 +17,7 @@ class categoriesController extends Controller
      */
     public function index()
     {
-        $cate = Category::all();
+        $cate = Category::all()->sortByDesc("CategoryID");
         $user = Auth::user();
 //        dd($cate);
         return view('admin.Categories.Categories',['user' => $user, 'cate' => $cate] );

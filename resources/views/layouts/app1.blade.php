@@ -357,24 +357,14 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://fb.com/yuzumi.s.99" target="_blank">
-                                <span class="ti-facebook"></span><span class="icon-name"> Nguyễn Huyền</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="https://github.com/lephung8399" target="_blank">
                                 <span class="ti-github"></span><span class="icon-name"> Github</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://stackoverflow.com/" target="_blank">
-                                <span class="ti-stack-overflow"></span><span class="icon-name"> Stack overflow</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="#" target="_blank">14th Team</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i>
                 </div>
             </div>
         </footer>

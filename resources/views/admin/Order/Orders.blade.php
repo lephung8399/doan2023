@@ -82,14 +82,16 @@
     <script>
         function changeStatus(id) {
             status = $("#orderStatus"+id).val();
+            status = parseInt(status);
             $.ajax({
-                url: document.location.origin+'/doan/public/admin/order/updateStarusByOrderID/'+id+'/'+status,
+                url: document.location.origin+'/admin/order/updateStarusByOrderID/'+id+'/'+status,
                 type: 'get',
                 dataType: 'html',
                 data: {}
             }).done(function(ketqua) {
                 $('#noidung').html(ketqua);
             });
+            location.reload();
         }
     </script>
 

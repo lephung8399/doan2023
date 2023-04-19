@@ -135,7 +135,7 @@
                             <div class="text-center">
                                 <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
                                 <button type="button" class="btn btn-warning btn-fill btn-wd">
-                                    <a href="{{ route('admin.profile.confirmPassword') }}">Change Password</a>
+                                    <a href="{{ route('admin.profile.confirmPassword') }}" style="color: #ffff">Change Password</a>
                                 </button>
                             </div>
 

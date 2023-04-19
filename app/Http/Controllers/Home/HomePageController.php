@@ -21,7 +21,7 @@ class HomePageController extends Controller
             ->orderBy('ProductID', 'desc')
             ->limit(5)
             ->get();
-//        dd($newest);
+            
         return view('HomePage.index',['newest' => $newest]);
     }
 

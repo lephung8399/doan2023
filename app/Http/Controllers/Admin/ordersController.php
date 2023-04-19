@@ -21,15 +21,9 @@ class ordersController extends Controller
     public function index()
     {
         $user = Auth::user();
-//        $payments = Payment::all();
         $payments = Payment::orderBy('id', 'desc')->get();
-//        $payments = DB::table('payment')
-//            ->orderBy('id', 'desc')
-//            ->get();
-//        dd($payments);
 
-        $orders = Order::all();
-        return view('admin.Order.Orders', ['user' => $user, 'payments' => $payments, 'orders' => $orders]);
+        return view('admin.Order.Orders', ['user' => $user, 'payments' => $payments]);
     }
 
     /**
